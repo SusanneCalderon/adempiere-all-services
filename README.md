@@ -47,7 +47,7 @@ The application stack consists of the following services defined in *docker-comp
 
 Additional objects defined in *docker-compose.yml*:
 - *adempiere_network*: defines the subnet used in the involved Docker containers (e.g. **192.168.100.0/24**)
-- *volume_postgres*: defines the mounting point of the Postgres database (typically directory **/var/lib/postgresql/data**) to a local directory on the host where the Docker container runs.
+- *volume_postgres*: defines the mounting point of the Postgres database on the Docker container (typically directory **/var/lib/postgresql/data**) to a local directory on the host where the Docker container runs.
 - *volume_backups*: defines the mounting point of a backup directory on the Docker container to a local directrory on the host where the Docker container runs.
 - *volume_scheduler*: defines the mounting point for the scheduler
 
@@ -80,11 +80,11 @@ The application stack as graphic:
   The name of the seed can be defined in *env_template*.
   The seed is a backup file created with psql.
   If there is a seed, but a database exists already, there will be no restore.
-  This directory is useful when creating a backup: it can be created here, without needing to transfer it from the container to the host.
+  This directory is also useful when creating a backup: it can be created here, without needing to transfer it from the container to the host.
 - *docs*: directory containing images and documents used in this README file.
 
 ## Next Functionality
-It can be executed concurrently for different customers databases using the same database server on the same host by just changing the project name and running anew. The only open issue is where Adempiere calls the database.
+In a further step, the application can be implemented in a way that it may concurrently be executed for different customers databases using the same database server on the same host by just changing the project name and running anew. The only open issue is where Adempiere calls the database.
 
 ## Installation
 ### Requirements
@@ -115,12 +115,12 @@ docker compose version
 ```
 ### Clone This Repository
 ```Shell
-git clone https://github.com/SusanneCalderon/adempiere-all-services
+git clone https://github.com/adempiere/adempiere-all-services
 cd adempiere-all-services
 ```
 ### Make sure to use correct branch
 ```Shell
-git checkout feature/shw/local-seed/master
+git checkout main
 ```
 
 ### Manual Execution
@@ -145,21 +145,21 @@ mkdir postgresql/backups
 ```Shell
 cp <PATH-TO-BACKUP-FILE> postgresql/backups
 ```
-##### 5 Modify env_template as needed
+##### 5 Modify env_template as needed (optional)
 The only variables actually needed to change in *env_template* are 
-- *COMPOSE_PROJECT_NAME* -> to the name you want to give the project, e.g. the name of your client).
+- *COMPOSE_PROJECT_NAME* -> to the name you want to give the project, e.g. *demo*, *test*, or the name of your client).
   From this name, all images and container names are derived.
-- *HOST_IP*  -> to to the IP your host has.
+- *HOST_IP*  -> to to the IP your host has, though you can leave it with 0.0.0.0 to work locally.
 - *POSTGRES_IMAGE* -> to the Postgres version you want to use.
-- *ADEMPIERE_GITHUB_VERSION* -> to the DB version needed.
-- *ADEMPIERE_GITHUB_COMPRESSED_FILE* -> to the DB version needed.
+- *ADEMPIERE_GITHUB_VERSION* -> to the DB version needed. This applies only if you want to restore from the Github official ADempiere release.
+- *ADEMPIERE_GITHUB_COMPRESSED_FILE* -> to the DB version needed. This applies only if you want to restore from the Github official ADempiere release, too.
 
 ![ADempiere Template](docs/ADempiere_All_Services_env_template.png)
 
 Other values in *env_template* are default values. 
 Feel free to change them accordingly to your wishes/purposes.
 There should be no need to change file *docker-compose.yml*.
-##### 6 Copy env_template if it was modified
+##### 6 Copy env_template if it was modified (optional)
 Once you modified *env_template* as needed, copy it to *.env*. This is not needed if you run *start-all.sh*. 
 ```Shell
 cp env_template .env
