@@ -29,7 +29,7 @@ if [ ! -d "$PERSISTENTDIR" ]; then
     echo "Directory $PERSISTENTDIR does not exist. It must be created."
     echo "Create directory $PERSISTENTDIR"
     mkdir $PERSISTENTDIR
-    chmod 777 $PERSISTENTDIR
+    chmod 755 $PERSISTENTDIR
 else
     echo "Directory $PERSISTENTDIR exists already: no need to create it"
 fi
