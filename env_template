@@ -49,7 +49,7 @@ POSTGRES_DEFAULT_RESTORE_FILE=${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}/${POSTGRES
 # Adempiere ZK
 # Look for newest tag at https://hub.docker.com/r/marcalwestf/adempiere-zk-ui/tags
 
-ADEMPIERE_ZK_IMAGE="marcalwestf/adempiere-zk-ui:jetty-shw-air-terminal-vertical-1.0.78"
+ADEMPIERE_ZK_IMAGE="marcalwestf/adempiere-zk-ui:jetty-shw-air-terminal-vertical-1.0.79"
 ADEMPIERE_ZK_EXTERNAL_PORT=8888
 ADEMPIERE_ZK_PORT=8080
 ADEMPIERE_ZK_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}.zk
