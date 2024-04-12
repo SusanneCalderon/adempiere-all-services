@@ -49,7 +49,7 @@ POSTGRES_DEFAULT_RESTORE_FILE=${POSTGRES_DB_BACKUP_PATH_ON_CONTAINER}/${POSTGRES
 # Adempiere ZK
 # Look for newest tag at https://hub.docker.com/r/marcalwestf/adempiere-zk-ui/tags
 
-ADEMPIERE_ZK_IMAGE="marcalwestf/adempiere-zk-ui:jetty-shw-air-terminal-vertical-1.0.84"
+ADEMPIERE_ZK_IMAGE="marcalwestf/adempiere-zk-ui:jetty-shw-air-terminal-vertical-1.0.86"
 ADEMPIERE_ZK_EXTERNAL_PORT=8888
 ADEMPIERE_ZK_PORT=8080
 ADEMPIERE_ZK_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}.zk
@@ -114,7 +114,7 @@ ADEMPIERE_SCHEDULER_PORT=8080
 ADEMPIERE_SCHEDULER_VOLUME=${COMPOSE_PROJECT_NAME}.volume_scheduler
 
 # ADempiereprocessors gRPC Server
-ADEMPIERE_PROCESSOR_IMAGE="marcalwestf/adempiere-processors-service:alpine-1.0.4"
+ADEMPIERE_PROCESSOR_IMAGE="marcalwestf/adempiere-processors-service:alpine-1.0.5"
 ADEMPIERE_PROCESSOR_HOSTNAME="adempiere-processor.processor"
 
 # Envoy Definition
