@@ -115,7 +115,7 @@ ADEMPIERE_SCHEDULER_PORT=8080
 ADEMPIERE_SCHEDULER_VOLUME=${COMPOSE_PROJECT_NAME}.volume_scheduler
 
 # ADempiereprocessors gRPC Server
-ADEMPIERE_PROCESSOR_IMAGE="marcalwestf/adempiere-processors-service:alpine-1.0.6"
+ADEMPIERE_PROCESSOR_IMAGE="marcalwestf/adempiere-processors-service:alpine-saprod-branch-master-LSV-1.0.3"
 ADEMPIERE_PROCESSOR_HOSTNAME="adempiere-processor.processor"
 
 # Envoy Definition
@@ -141,3 +141,4 @@ NETWORK_IP_RANGE=192.168.10.0/24
 POSTGRES_VOLUME=${COMPOSE_PROJECT_NAME}.volume_postgres
 BACKUPS_VOLUME=${COMPOSE_PROJECT_NAME}.volume_backups
 PERSISTENT_FILES_VOLUME=${COMPOSE_PROJECT_NAME}.volume_persistent_files
+
